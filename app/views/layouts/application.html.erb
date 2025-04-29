@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ReserveApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+        <nav>
+          <div class="header_container">
+            <div class="logo_container">
+              <a href="http://localhost:3000/">
+                <%= image_tag 'logo.png', class: 'logo' %>
+              </a>
+            </div>
+
+            <div class="header_icon_and_username">
+              <% if user_signed_in? %>
+                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'signout_link' %>
+                <%= image_tag 'default-icon.png', class: 'icon_image' %>
+                <p><%= current_user.name %></p>
+              <% else %>
+                <%= link_to 'ログイン', new_user_session_path, class:'signin_link1' %>
+                <%= link_to '新規登録', new_user_registration_path, class:'signup_link1' %>
+              <% end %>
+            </div>
+          </div>
+        </nav>
+    </header>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <main class="main">
+    <%= yield %>
+    </main>
+
+    <footer></footer>
+  </body>
+</html>
