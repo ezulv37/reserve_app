@@ -1,0 +1,40 @@
+<h2>再予約する</h2>
+
+<p>
+  <% if @room.image.attached? %>
+    <%= image_tag @room.image, size: "430x245" %>
+  <% else %>
+    <%= image_tag 'default-room_image.png', size: "430x245" %>
+  <% end %>
+</p>
+
+<div class="formFrame">
+  <div>
+      <p><%= @room.name %></p>
+      <p>¥<%= @room.fee %>〜</p>
+      <p><%= @room.address %></p>
+      <p><%= @room.introduction %></p>
+  
+
+      <!-- 再予約フォーム -->
+      <%= form_with model: @reservation, url: room_reservation_confirm_path(@room, @reservation), local: true do |f| %>
+       <div>
+         <%= f.label :checkin_date, "チェックイン" %>
+         <%= f.date_field :checkin_date %>
+       </div>
+       <div>
+         <%= f.label :checkout_date, "チェックアウト" %>
+         <%= f.date_field :checkout_date %>
+       </div>
+       <div>
+         <%= f.label :number_of_guests, "人数" %>
+         <%= f.number_field :number_of_guests %>
+       </div>
+       <div>
+         <%= f.submit "再予約する", class: "btn" %>
+       </div>
+      <% end %>
+  </div>
+</div> 
+
+<div><%= link_to 'キャンセル', :back, class: 'edit_btn' %></div>

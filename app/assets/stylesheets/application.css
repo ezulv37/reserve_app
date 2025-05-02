@@ -13,3 +13,86 @@
  *= require_tree .
  *= require_self
  */
+
+
+/*ヘッダー*/
+header {
+  width: 100%;
+  margin-bottom: 30px;
+  height: 50px;
+  background-color: #1c1d3b;
+}
+  
+.header_container{
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 30px;
+  align-items: center;
+  height: 50px;
+  background-color: #1c1d3b;
+}
+
+.logo{
+  width: 221px;
+  box-sizing: border-box;
+}
+
+.icon_image{
+  width: 45px;
+  margin-right: 15px;
+}
+
+.header_icon_and_username{
+  display: flex;
+  align-items: center;
+}
+
+
+.signin_link1, .signup_link1{
+  width: 75px;
+  height: 32px;
+  text-decoration: none;
+  border-radius: 2px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signin_link1{
+  background-color: #ffff;
+  color: #000000;
+  border: #ffff;
+  margin-right: 10px;
+}
+
+.signup_link1{
+  background-color: #ff7757;
+  color: #ffff;
+  border: #ff7757;
+}
+
+.signout_link{
+  background-color: #ffff;
+  color: #000000;
+  border: #000000;
+}
+
+.header_username{
+  color: #ffff;
+  font-size: 18px;
+}
+
+.account_setting_link{
+  color: aqua;
+}
+
+
+/*フッター*/
+footer{
+  width: 100%;
+  padding: 15px;
+  margin-top: 30px;
+  height: 190px;
+  background-color: #1c1d3b;
+}

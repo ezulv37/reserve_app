@@ -3,68 +3,48 @@ body{
   margin: 0;
 }
 
-/*ヘッダー*/
-header {
-  width: 100%;
-  margin-bottom: 30px;
-  height: 70px;
-  background-color: #1c1d3b;
-}
-
-.header_container{
-  display: flex;
-  justify-content: space-between;
-  padding: 14px;
-  align-items: center;
-}
-
-.logo{
-  width: 221px;
-  box-sizing: border-box;
-}
-
-.icon_image{
-  width: 45px;
-}
-
-.header_icon_and_username{
-    display: flex;
-}
-
-
-.signin_link1, .signup_link1{
-  width: 75px;
-  height: 32px;
+.accountForm_btn{
+  border: 1px solid #e0e0e0;
+  color: #6a6a6a;
+  font-size: 16px;
+  line-height: 24px;
+  height: 52px;
+  border-radius: 12px;
+  padding: 14px 24px;
   text-decoration: none;
-  border-radius: 2px;
-  font-weight: 700;
 }
 
-.signin_link1{
-  background-color: #ffff;
-  color: #000000;
-  border: #ffff;
-  margin-right: 10px;
+/*ドロップダウンメニュー*/
+.dropdown {
+  position: relative;
+  display: inline-block;
 }
 
-.signup_link1{
-  background-color: #ff7757;
-  color: #ffff;
-  border: #ff7757;
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  min-width: 135px;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  right: 0;
+  left: auto;
+  z-index: 999;
 }
 
-.signout_link{
-  background-color: #ffff;
-  color: #000000;
-  border: #000000;
+.dropdown-menu a {
+  display: block;
+  padding: 5px 10px;
+  color: black;
+  text-decoration: none;
 }
 
-/*フッター*/
-footer{
-  width: 100%;
-  padding: 15px;
-  margin-top: 30px;
-  height: 150px;
-  background-color: #1c1d3b;
+.dropdown-menu a:hover {
+  background-color: #f0f0f0;
 }
-  
+
+.dropdown-menu.show {
+  display: block;
+}

@@ -1,0 +1,16 @@
+<%= render "shared/account_setting" %>
+<h1>プロフィール</h1>
+<%= link_to '編集', edit_user_profile_path, class: 'edit_btn' %>
+
+<p>
+  <strong>アイコン画像:</strong>
+  <% if @user.image.attached? %>
+    <%= image_tag @user.image, size: "80x80" %>
+  <% else %>
+    <%= image_tag 'default-icon.png', size: "80x80" %>
+  <% end %>
+</p>
+<p><strong>名前:</strong> <%= @user.name %></p>
+<p><strong>自己紹介:</strong> <%= @user.introduction %></p>
+
+

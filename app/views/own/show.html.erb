@@ -1,0 +1,42 @@
+<h3>登録済み施設一覧</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>画像</th>
+      <th>施設名</th>
+      <th>紹介文</th>
+      <th>料金</th>
+      <th>作成日</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rooms.each do |room| %>
+      <tr>
+        <td>
+          <% if room.image&.attached? %>
+            <%= image_tag room.image, size: "80x80" %>
+          <% else %>
+            <%= image_tag 'default-room_image.png', size: "80x80" %>
+          <% end %>
+        </td>
+        <td><%= link_to room.name, room %></td>
+        <td><%= room.introduction %></td>
+        <td>¥<%= room.fee %>〜</td>
+        <td><%= room.created_at.to_s(:date_jp) %></td>
+
+        <td class="dropdown">
+          <div class="room_dropdownIcon">
+            <%= image_tag 'https://rails-02-sample.herokuapp.com/assets/icons/three-dot-menu-0c042cde96cc73e058e97d09a24944eb2914eb8c152d418dc6fc6964251fdaa2.svg', class: "three_dots_menu_icon dropdown-toggle" %>
+          </div>
+          <div class="room_dropdownMenu dropdown-menu">
+            <%= link_to '編集', edit_room_path(room.id), class: 'dropdown-item' %><br>
+            <%= link_to '施設を削除', room_path(room.id), method: :delete, class: 'dropdown-item room_delete_link', style: 'color: red;' %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
