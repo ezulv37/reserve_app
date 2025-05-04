@@ -1,31 +1,42 @@
 <h1>予約内容の確認</h1>
 
-<%= form_with model: @reservation, url: room_reservations_path(@room), method: :post, local: true do |f| %>
-    <div>
-      <%= f.label :checkin_date, "チェックイン" %>
-      <p><%= @reservation.checkin_date %></p>
-    </div>
-    <div>
-      <%= f.label :checkout_date, "チェックアウト" %>
-      <p><%= @reservation.checkout_date %></p>
-    </div>
-    <div>
-      <%= f.label :number_of_date, "日数" %>
-      <p><%= @nights %>日</p>
-    </div>
-    <div>
-      <%= f.label :number_of_guests, "人数" %>
-      <p><%= @reservation.number_of_guests %>人</p>
-    </div>
-    <div>
-      <%= f.label :total_fee, "お支払い金額" %>
-      <p>¥<%= number_with_delimiter(@reservation.total_fee) %></p>
-    </div>
+<!-- 新規予約なら → POST /rooms/:room_id/reservations
+     再予約なら → PATCH /rooms/:room_id/reservations/:id -->
+<%= form_with model: @reservation, url: params[:id].present? ? room_reservation_path(@room, @reservation) : room_reservations_path(@room), method: params[:id].present? ? :patch : :post, local: true do |f| %>
+  
+  <!-- ← 再予約用にIDを隠しフィールドで送信 -->
+  <%= f.hidden_field :reservation_id %> 
+  
+  <div>
+    <%= f.label :checkin_date, "チェックイン" %>
+    <p><%= @reservation.checkin_date %></p>
+    <%= f.hidden_field :checkin_date %>
+  </div>
+  <div>
+    <%= f.label :checkout_date, "チェックアウト" %>
+    <p><%= @reservation.checkout_date %></p>
+    <%= f.hidden_field :checkout_date %>
+  </div>
+  <div>
+    <%= f.label :number_of_date, "日数" %>
+    <p><%= @night %>日</p>
+    <%= f.hidden_field :number_of_date, value: @night %>
+  </div>
+  <div>
+    <%= f.label :number_of_guests, "人数" %>
+    <p><%= @reservation.number_of_guests %>人</p>
+    <%= f.hidden_field :number_of_guests %>
+  </div>
+  <div>
+    <%= f.label :total_fee, "お支払い金額" %>
+    <p>¥<%= number_with_delimiter(@reservation.total_fee) %></p>
+    <p><%= f.hidden_field :total_fee %></p>
+  </div>
 
-    <p>上記内容で正しければ「確定」ボタンを押してください</p>
+  <p>上記内容で正しければ「確定」ボタンを押してください</p>
 
-    <div>
-      <p><%= f.submit "予約を確定", class: "btn" %></p>
-      <p><%= link_to "キャンセル", room_path(@room) %></p>
-    </div>
-  <% end %>
+  <div>
+    <p><%= f.submit "予約を確定", class: "btn" %></p>
+    <p><%= link_to "キャンセル", room_path(@room) %></p>
+  </div>
+<% end %>

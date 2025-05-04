@@ -18,9 +18,10 @@ Rails.application.routes.draw do
 
   # roomモデル--reservationモデル
   get 'rooms/own', to: 'own#show', as: 'room_own'
+
   resources :rooms do
-    resources :reservations, only: [:new, :create, :edit, :update, :destroy]
-    post 'reservations/confirm', to: 'reservations#confirm', as: 'reservation_confirm'
+    resources :reservations, only: [:new, :create, :edit, :update, :destroy] 
+    post 'reservations/confirm', to: 'reservations#confirm', as: 'reservation_confirm' # ← 新規予約用
   end
 
   root "homes#index"

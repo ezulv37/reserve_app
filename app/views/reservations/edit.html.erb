@@ -17,7 +17,11 @@
   
 
       <!-- 再予約フォーム -->
-      <%= form_with model: @reservation, url: room_reservation_confirm_path(@room, @reservation), local: true do |f| %>
+      <%= form_with model: @reservation, url: room_reservation_confirm_path(@room), method: :post, local: true do |f| %>
+       
+       <!-- ← 再予約用にIDを隠しフィールドで送信 -->
+       <%= f.hidden_field :id %>
+
        <div>
          <%= f.label :checkin_date, "チェックイン" %>
          <%= f.date_field :checkin_date %>
