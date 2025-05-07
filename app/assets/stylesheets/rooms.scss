@@ -11,3 +11,259 @@ table th {
 table td {
   padding: 10px 20px;
 }
+
+
+/*ヘッダー検索バー*/
+.roomSearchBar{
+  background-color: #dfe2e6;
+  display: flex;
+  height: 125px;
+  align-items: center;
+  justify-content: center;
+}
+
+.roomSearchForm{
+  display: flex;
+  gap: 16px;
+}
+
+.searchBar_area, .searchBar_keyword{
+  border: 1px solid #ced4da;
+  color: #212529;
+  height: 45px;
+  padding-left: 22px;
+  width: 238px;
+  border-radius: 5px;
+}
+
+.searchBar_submit{
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 16px;
+  height: 48px;
+  width: 100px;
+}
+
+/*room検索結果*/
+.room_search_resultContainer, .roomDetails_container{
+  padding: 40px 32px 260px 32px;
+}
+
+.roomList{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.Room{
+  background: #fff8f1;
+  border-radius: 26px;
+  box-sizing: border-box;
+  width: calc(33.33333% - 21.33333px);
+}
+
+.roomImage{
+  border-radius: 26px 26px 0 0;
+  width: 100%;
+  object-fit: cover;    /* はみ出さないよう切り取り */
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.roomBody{
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.roomName{
+  color: #767e86;
+  font-size: 24px;
+  line-height: 28px;
+  margin-bottom: 8px;
+}
+
+.roomAddress{
+  color: #767e86;
+  font-size: 14px;
+  line-height: 21px;
+  margin-bottom: 3px;
+}
+
+.roomIntroduction{
+  display: -webkit-box;
+  font-size: 16px;
+  margin-bottom: 24px;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.roomPrace{
+  font-size: 22px;
+  line-height: 32px;
+  margin-bottom: 8px;
+  color: #ff7757;
+  font-family: Lato, sans-serif;
+  font-weight: 700;
+}
+
+.roomLink{
+  width: 100%;
+  align-items: center;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  height: 58px;
+  font-size: 18px;
+  background-color: #ff7757;
+  color: #fff;
+  font-size: 16px;
+  line-height: 58px;
+  padding: 0 20px;
+  text-align: center;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+
+/*施設詳細*/
+.roomDetails_header{
+  margin-bottom: 40px;
+}
+
+.roomDetails_header_link{
+  color: #0071c1;
+  font-size: 18px;
+  line-height: 30px;
+  margin-bottom: 24px;
+}
+
+.roomDetails{
+  display: flex;
+  gap: 32px;
+}
+
+.roomDetail_image{
+  margin: 0 ;
+}
+
+.roomDetailsBody{
+  background-color: #fff8f1;
+  padding: 40px 24px;
+  width: 100%;
+}
+
+.roomDetailsBody_nameANDprice{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.roomDetails_name{
+  color: #767e86;
+  font-size: 24px;
+  line-height: 28px;
+  font-size: 28px;
+  line-height: 39px;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.roomDetails_price{
+  margin: 0;
+  color: #ff7757;
+  font-family: Lato, sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 32px;
+}
+
+.roomDetails_address{
+  color: #767e86;
+  font-size: 14px;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+.roomDetails_ntroduction{
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.reservationForm_container{
+  display: flex ;
+  margin-bottom: 24px;
+  padding: 24px;
+  background-color: #ffff;
+  gap: 24px;
+}
+
+.reservationForm_input-group>label{
+  font-size: 14px;
+  color: #5a5959;
+  font-weight: 700;
+}
+
+.reservationForm_input{
+  height: 45px;
+  padding: 6px 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ReservationForm_button{
+  height: 70px;
+  width: 100%;
+  background-color: #ff7757;
+  color: #ffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+/*施設新規登録・編集*/
+.room_new_edit_page{
+  padding: 40px 0 180px;
+}
+
+.room_new_edit_container{
+  margin: auto;
+  width: 700px;
+}
+
+.room_new_edit_title{
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 40px;
+  margin-top: 0;
+}
+
+.room_new_edit_field{
+  margin-bottom: 24px;
+  font-size: 18px;
+  display: flex;
+}
+
+.room_new_edit_item{
+  text-align: left;
+  margin-top: 0;
+  font-weight: 700;
+  width: 45%;
+}
+
+.room_new_edit_inputForm{
+  width: 100%;
+}
+
+.roomNewEdit_introduction{
+  height: 125px;
+}
+
+
+
+
+

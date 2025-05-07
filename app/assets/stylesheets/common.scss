@@ -1,6 +1,18 @@
 /*全体*/
 body{
   margin: 0;
+  padding-top: 0;
+  overflow-x: hidden;
+}
+
+main{
+  margin-top: 0;
+  padding: 0;
+  min-height: 600px;
+}
+
+li{
+  list-style: none;
 }
 
 .accountForm_btn{
@@ -14,10 +26,10 @@ body{
   text-decoration: none;
 }
 
+
 /*ドロップダウンメニュー*/
 .dropdown {
   position: relative;
-  display: inline-block;
 }
 
 .dropdown-menu {
@@ -47,4 +59,242 @@ body{
 
 .dropdown-menu.show {
   display: block;
+}
+
+
+/*アカウント設定(show)*/
+.account_container{
+  padding: 32px;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.account_partial{
+  width: 30%;
+}
+
+.accountInformation{
+  width: calc(100% - 32px);
+}
+
+.accountNavigation_title{
+  font-size: 38px;
+  margin: 0px 0px 24px 0px;
+  font-weight: normal;
+}
+
+.accountNavigation{
+  width: 100%;
+  border: 1px solid #dfe2e6;
+  margin-bottom: 40px;
+}
+
+.accountNavigation_item{
+  font-size: 20px;
+  margin: 0;
+  padding: 20px 24px;
+}
+
+.accountNavigation_item_text{
+  color: black;
+}
+
+.accountNavigation_item:first-of-type{
+  border-bottom: 1px solid #dfe2e6;
+}
+
+.accountInformation_header{
+  align-items: center;
+  border-bottom: 1px solid #dfe2e6;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 8px;
+}
+
+.accountInformation_header_title{
+  margin: 0;
+}
+
+.account_edit_btn{
+  font-size: 21px;
+  color: #ffff;
+  border: 1px solid royalblue;
+  background-color: royalblue;
+  border-radius: 8px;
+  padding: 5px 10px;
+}
+
+/*アカウント設定(edit)*/
+.field{
+  display: flex;
+  margin-bottom: 32px;
+}
+
+.account_item_title{
+  width: 40%;
+}
+
+.account_item_inputform{
+  width: 100%;
+  height: 45px;
+  padding: 6px 12px;
+}
+
+.account_introduction_inputform{
+  width: 100%;
+  padding: 12px 12px;
+  height: 124px;
+}
+
+.item_title_detail{
+  font-size: 13px;
+  color: grey;
+}
+
+.account_image_uploadform{
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.account_image{
+  margin-left: 32px;
+  margin-right: 32px;
+}
+
+.actions {
+  display: flex;
+  justify-content: right;
+}
+
+.account_edit_savebtn{
+  background-color: #ff7757;
+  border: none;
+  border-radius: 10px;
+  height: 58px;
+  width: 88px;
+  font-size: 16px;
+  color: #ffff;
+  margin-right: 16px;
+}
+
+.account_edit_cancelbtn{
+  background-color: #ffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  height: 58px;
+  width: 148px;
+  font-size: 16px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*サインアップ・ログイン*/
+.signup_signin_page{
+  padding: 60px 0 120px;
+  background-color: #dfe2e6;
+}
+
+.signup_signin_container{
+  padding: 40px 16px;
+  width: 470px;
+  background-color: #fff;
+  margin: auto;
+}
+
+.signup_signin_container_title{
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  margin-top: 0;
+  font-weight: normal;
+}
+
+.signup_signin_field{
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.signupin_title{
+  margin-bottom: 8px;
+  margin-top: 0;
+}
+
+.signupin_inputForm{
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  height: 45px;
+  padding: 6px 12px;
+}
+
+.signupin_title_detail{
+  font-size: 13px;
+  color: grey;
+}
+
+.signupin_btnA, .btnA, .signupin_btnB, .btnB{
+  align-items: center;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  height: 58px;
+  font-size: 18px;
+  padding: 14px 24px;
+  width: 100%;
+  height: 58px;
+}
+
+.signupin_btnA, .btnA{
+  background-color: #ff7757;
+  color: #fff;
+  margin-bottom: 16px;
+  border: none;
+}
+
+.signupin_btnB, .btnB{
+  border: 1px solid #e0e0e0;
+  color: #6a6a6a;
+  box-sizing: border-box;
+}
+
+
+/*登録済み施設・予約一覧*/
+
+.table_container{
+  max-width: 1440px;
+  padding: 0 32px;
+  margin-top: 0px;
+  padding-top: 40px;
+  margin-bottom: 260px;
+}
+
+.page_title{
+  font-weight: 500;
+  font-size: 28px;
+  margin-top: 0;
+}
+
+.tbodys, .tds, .ths, .theads, .trs{
+  border-style: solid;
+  border-color: #ced4da;
+  border-width: 0 0 1px 0;
+}
+
+.tables{
+  width: 100%;
+  border-collapse: collapse;
+} 
+
+.theads .ths {
+  border-bottom: 1px solid #222;
+}
+
+.column_title{
+  text-align: left;
+  font-size: 15px;
 }

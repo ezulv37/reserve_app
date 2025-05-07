@@ -52,7 +52,7 @@ header {
   width: 75px;
   height: 32px;
   text-decoration: none;
-  border-radius: 2px;
+  border-radius: 5px;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -88,11 +88,11 @@ header {
 }
 
 
+
 /*フッター*/
 footer{
   width: 100%;
   padding: 15px;
-  margin-top: 30px;
-  height: 190px;
+  height: 150px;
   background-color: #1c1d3b;
 }

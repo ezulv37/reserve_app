@@ -1,47 +1,50 @@
-<h3>予約済み施設一覧</h3>
+<section class="table_container">
+  <h3 class="page_title">予約済み施設一覧</h3>
 
-<table>
-  <thead>
-    <tr>
-      <th>画像</th>
-      <th>施設名</th>
-      <th>紹介文</th>
-      <th>合計料金</th>
-      <th>チェックイン</th>
-      <th>チェックアウト</th>
-      <th>予約確定日時</th>
-    </tr>
-  </thead>
+  <table class="tables">
+    <thead class="theads">
+      <tr class="column_title">
+        <th class="ths">画像</th>
+        <th class="ths">施設名</th>
+        <th class="ths">紹介文</th>
+        <th class="ths">合計料金</th>
+        <th class="ths">チェックイン</th>
+        <th class="ths">チェックアウト</th>
+        <th class="ths">予約確定日時</th>
+        <th class="ths"></th>
+      </tr>
+    </thead>
 
-  <tbody>
-    <% @rooms.each do |room| %>
-      <% room.reservations.each do |reservation| %>
-        <tr>
-          <td>
-            <% if room.image&.attached? %>
-              <%= image_tag room.image, size: "80x80" %>
-            <% else %>
-              <%= image_tag 'default-room_image.png', size: "80x80" %>
-            <% end %>
-          </td>
-          <td><%= link_to room.name, room %></td>
-          <td><%= room.introduction %></td>
-          <td>¥<%= reservation.total_fee %></td>
-          <td><%= reservation.checkin_date %></td>
-          <td><%= reservation.checkout_date %></td>
-          <td><%= reservation.created_at.to_s(:datetime_jp) %></td>
+    <tbody class="tbodys">
+      <% @rooms.each do |room| %>
+        <% room.reservations.each do |reservation| %>
+          <tr class="trs">
+            <td class="tds">
+              <% if room.image&.attached? %>
+                <%= image_tag room.image, size: "120x70" %>
+              <% else %>
+                <%= image_tag 'default-room_image.png', size: "120x70" %>
+              <% end %>
+            </td>
+            <td class="tds"><%= link_to room.name, room %></td>
+            <td class="tds"><%= room.introduction %></td>
+            <td class="tds">¥<%= reservation.total_fee %></td>
+            <td class="tds"><%= reservation.checkin_date.to_s(:date_jp) %></td>
+            <td class="tds"><%= reservation.checkout_date.to_s(:date_jp) %></td>
+            <td class="tds"><%= reservation.created_at.to_s(:datetime_jp) %></td>
 
-          <td class="dropdown">
-            <div class="reservation_dropdownIcon">
-              <%= image_tag 'https://rails-02-sample.herokuapp.com/assets/icons/three-dot-menu-0c042cde96cc73e058e97d09a24944eb2914eb8c152d418dc6fc6964251fdaa2.svg', class: "three_dots_menu_icon dropdown-toggle" %>
-            </div>
-            <div class="reservation_dropdownMenu dropdown-menu">
-              <%= link_to '再予約', edit_room_reservation_path(room, reservation), class: 'dropdown-item' %><br>
-              <%= link_to '予約を削除', room_reservation_path(room, reservation), method: :delete, class: 'dropdown-item reservation_delete_link', style: 'color: red;' %>
-            </div>
-          </td>
-        </tr>
+            <td class="dropdown">
+              <div class="reservation_dropdownIcon">
+                <%= image_tag 'https://rails-02-sample.herokuapp.com/assets/icons/three-dot-menu-0c042cde96cc73e058e97d09a24944eb2914eb8c152d418dc6fc6964251fdaa2.svg', class: "three_dots_menu_icon dropdown-toggle" %>
+              </div>
+              <div class="reservation_dropdownMenu dropdown-menu">
+               <!--<%= link_to '再予約', edit_room_reservation_path(room, reservation), class: 'dropdown-item' %><br>-->
+               <%= link_to '予約を削除', room_reservation_path(room, reservation), method: :delete, class: 'dropdown-item reservation_delete_link', style: 'color: red;' %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
       <% end %>
-    <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</section>

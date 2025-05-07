@@ -1,1 +1,40 @@
-施設検索結果が表示される予定
+<div class="roomSearchBar">
+  <div class="roomSearchForm_container">
+    <%= form_with url: rooms_path, method: :get, local: true, html: { class: "roomSearchForm" } do |f| %>
+      <div>
+        <%= f.text_field :address, value: params[:address], placeholder: "エリア名を入力", include_blank: "すべて", class: "searchBar_area" %>
+      </div>
+      <div>
+        <%= f.text_field :keyword, value: params[:keyword], placeholder: "キーワードを入力", class: "searchBar_keyword" %>
+      </div>
+
+      <%= f.submit "検索", class: "searchBar_submit" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="room_search_resultContainer">
+  <p class="room_search_countResult">
+    <%= @rooms.count %> 件の施設が見つかりました
+  </p>
+
+  <ul class="roomList">
+    <% @rooms.each do |room| %>
+      <li class="Room">
+        <% if room.image&.attached? %>
+          <%= image_tag room.image, class: "roomImage" %>
+        <% else %>
+          <%= image_tag 'default-room_image.png', class: "roomImage" %>
+        <% end %>
+        <div class="roomBody">
+          <p class="roomName"><%= room.name %></p>
+          <p class="roomAddress"><%= room.address %></p>
+          <p class="roomIntroduction"><%= room.introduction %></p>
+          <p class="roomPrace">¥<%= room.fee %>〜</p>
+          <%= link_to '詳細はこちら', room, class: "roomLink" %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
+

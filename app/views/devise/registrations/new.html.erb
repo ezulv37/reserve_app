@@ -1,33 +1,41 @@
-<h2>新規登録</h2>
+<div class="signup_signin_page">
+  <section class="signup_signin_container">
+    <h3 class="signup_signin_container_title">新規登録</h3>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'signup_signin_form' }) do |f| %>
+      <div class="signup_signin_field">
+        <p class="signupin_title"><%= f.label :name, "ユーザー名" %></p>
+        <%= f.text_field :name, autofocus: true, class:"signupin_inputForm" %>
+      </div>
+      
+      <div class="signup_signin_field">
+        <p class="signupin_title"><%= f.label :email, "メールアドレス" %></p>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"signupin_inputForm" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+      <div class="signup_signin_field">
+        <div>
+          <p class="signupin_title">
+            <%= f.label :password, "パスワード" %>
+            <% if @minimum_password_length %>
+              <em class="signupin_title_detail">(<%= @minimum_password_length %> 文字以上で入力)</em>
+            <% end %>
+          </p>
+        </div>
+        <%= f.password_field :password, autocomplete: "new-password", class:"signupin_inputForm" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+      <div class="signup_signin_field">
+        <p class="signupin_title"><%= f.label :password_confirmation, "確認用パスワード" %></p>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"signupin_inputForm" %>
+      </div>
 
-  <div class="actions">
-    <%= f.submit "新しいアカウントを作成", class:'accountForm_btn' %><br>
-    <%= link_to 'アカウントをお持ちの方はログイン', new_user_session_path, class:'accountForm_btn' %>
-  </div>
-<% end %>
+      <div class="signup_signin_actions">
+        <%= f.submit "新しいアカウントを作成", class:'signupin_btnA btnA'%>
+        <%= link_to 'アカウントをお持ちの方はログイン', new_user_session_path, class:'signupin_btnB btnB' %>
+      </div>
+    <% end %>
+  </section>
+</div>

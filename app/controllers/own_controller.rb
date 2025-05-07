@@ -3,6 +3,6 @@ class OwnController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @rooms = Room.all
+    @rooms = current_user.rooms
   end
 end

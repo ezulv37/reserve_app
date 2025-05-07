@@ -1,14 +1,24 @@
 class RoomsController < ApplicationController
   def index
     @rooms = Room.all
+
+    if params[:address].present? # 住所が入力されたら検索する
+      # Roomモデルからaddressカラムを対象に、params[:address]（検索キーワード）が含まれているレコードを探して@roomsに入れる
+      @rooms = @rooms.where("address LIKE ?", "%#{params[:address]}%")
+    end
+
+    if params[:keyword].present?
+      keyword = "%#{params[:keyword]}%"
+      @rooms = @rooms.where("name LIKE ? OR introduction LIKE ?", keyword, keyword)
+    end
   end
 
   def new
-    @room = Room.new
+    @room = current_user.rooms.new
   end
 
   def create
-    @room = Room.new(params.require(:room).permit(:name, :introduction, :fee, :address, :image))
+    @room = current_user.rooms.new(params.require(:room).permit(:name, :introduction, :fee, :address, :image))
     if @room.save
       flash[:notice] = "施設を新規登録しました"
       redirect_to room_own_path
@@ -23,11 +33,13 @@ class RoomsController < ApplicationController
   end
 
   def edit
-    @room = Room.find(params[:id])
+    @room = current_user.rooms.find(params[:id])
   end
 
   def update
-    @room = Room.find(params[:id])
+    @room = current_user.rooms.find(params[:id])
+
+
     if @room.update(params.require(:room).permit(:name, :introduction, :fee, :address, :image))
       flash[:notice] = "施設情報を更新しました"
       redirect_to room_own_path
