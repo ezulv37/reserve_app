@@ -1,70 +1,300 @@
 /*全体*/
 body{
   margin: 0;
+  padding-top: 0;
+  overflow-x: hidden;
 }
 
-/*ヘッダー*/
-header {
-  width: 100%;
-  margin-bottom: 30px;
-  height: 70px;
-  background-color: #1c1d3b;
+main{
+  margin-top: 0;
+  padding: 0;
+  min-height: 600px;
 }
 
-.header_container{
+li{
+  list-style: none;
+}
+
+.accountForm_btn{
+  border: 1px solid #e0e0e0;
+  color: #6a6a6a;
+  font-size: 16px;
+  line-height: 24px;
+  height: 52px;
+  border-radius: 12px;
+  padding: 14px 24px;
+  text-decoration: none;
+}
+
+
+/*ドロップダウンメニュー*/
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  min-width: 135px;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  right: 0;
+  left: auto;
+  z-index: 999;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 5px 10px;
+  color: black;
+  text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+
+/*アカウント設定(show)*/
+.account_container{
+  padding: 32px;
   display: flex;
   justify-content: space-between;
-  padding: 14px;
+  gap: 40px;
+}
+
+.account_partial{
+  width: 30%;
+}
+
+.accountInformation{
+  width: calc(100% - 32px);
+}
+
+.accountNavigation_title{
+  font-size: 38px;
+  margin: 0px 0px 24px 0px;
+  font-weight: normal;
+}
+
+.accountNavigation{
+  width: 100%;
+  border: 1px solid #dfe2e6;
+  margin-bottom: 40px;
+}
+
+.accountNavigation_item{
+  font-size: 20px;
+  margin: 0;
+  padding: 20px 24px;
+}
+
+.accountNavigation_item_text{
+  color: black;
+}
+
+.accountNavigation_item:first-of-type{
+  border-bottom: 1px solid #dfe2e6;
+}
+
+.accountInformation_header{
+  align-items: center;
+  border-bottom: 1px solid #dfe2e6;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 8px;
+}
+
+.accountInformation_header_title{
+  margin: 0;
+}
+
+.account_edit_btn{
+  font-size: 21px;
+  color: #ffff;
+  border: 1px solid royalblue;
+  background-color: royalblue;
+  border-radius: 8px;
+  padding: 5px 10px;
+}
+
+/*アカウント設定(edit)*/
+.field{
+  display: flex;
+  margin-bottom: 32px;
+}
+
+.account_item_title{
+  width: 40%;
+}
+
+.account_item_inputform{
+  width: 100%;
+  height: 45px;
+  padding: 6px 12px;
+}
+
+.account_introduction_inputform{
+  width: 100%;
+  padding: 12px 12px;
+  height: 124px;
+}
+
+.item_title_detail{
+  font-size: 13px;
+  color: grey;
+}
+
+.account_image_uploadform{
+  width: 100%;
+  display: flex;
   align-items: center;
 }
 
-.logo{
-  width: 221px;
+.account_image{
+  margin-left: 32px;
+  margin-right: 32px;
+}
+
+.actions {
+  display: flex;
+  justify-content: right;
+}
+
+.account_edit_savebtn{
+  background-color: #ff7757;
+  border: none;
+  border-radius: 10px;
+  height: 58px;
+  width: 88px;
+  font-size: 16px;
+  color: #ffff;
+  margin-right: 16px;
+}
+
+.account_edit_cancelbtn{
+  background-color: #ffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  height: 58px;
+  width: 148px;
+  font-size: 16px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*サインアップ・ログイン*/
+.signup_signin_page{
+  padding: 60px 0 120px;
+  background-color: #dfe2e6;
+}
+
+.signup_signin_container{
+  padding: 40px 16px;
+  width: 470px;
+  background-color: #fff;
+  margin: auto;
+}
+
+.signup_signin_container_title{
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  margin-top: 0;
+  font-weight: normal;
+}
+
+.signup_signin_field{
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.signupin_title{
+  margin-bottom: 8px;
+  margin-top: 0;
+}
+
+.signupin_inputForm{
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  height: 45px;
+  padding: 6px 12px;
+}
+
+.signupin_title_detail{
+  font-size: 13px;
+  color: grey;
+}
+
+.signupin_btnA, .btnA, .signupin_btnB, .btnB{
+  align-items: center;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  height: 58px;
+  font-size: 18px;
+  padding: 14px 24px;
+  width: 100%;
+  height: 58px;
+}
+
+.signupin_btnA, .btnA{
+  background-color: #ff7757;
+  color: #fff;
+  margin-bottom: 16px;
+  border: none;
+}
+
+.signupin_btnB, .btnB{
+  border: 1px solid #e0e0e0;
+  color: #6a6a6a;
   box-sizing: border-box;
 }
 
-.icon_image{
-  width: 45px;
+
+/*登録済み施設・予約一覧*/
+
+.table_container{
+  max-width: 1440px;
+  padding: 0 32px;
+  margin-top: 0px;
+  padding-top: 40px;
+  margin-bottom: 260px;
 }
 
-.header_icon_and_username{
-    display: flex;
+.page_title{
+  font-weight: 500;
+  font-size: 28px;
+  margin-top: 0;
 }
 
-
-.signin_link1, .signup_link1{
-  width: 75px;
-  height: 32px;
-  text-decoration: none;
-  border-radius: 2px;
-  font-weight: 700;
+.tbodys, .tds, .ths, .theads, .trs{
+  border-style: solid;
+  border-color: #ced4da;
+  border-width: 0 0 1px 0;
 }
 
-.signin_link1{
-  background-color: #ffff;
-  color: #000000;
-  border: #ffff;
-  margin-right: 10px;
-}
-
-.signup_link1{
-  background-color: #ff7757;
-  color: #ffff;
-  border: #ff7757;
-}
-
-.signout_link{
-  background-color: #ffff;
-  color: #000000;
-  border: #000000;
-}
-
-/*フッター*/
-footer{
+.tables{
   width: 100%;
-  padding: 15px;
-  margin-top: 30px;
-  height: 150px;
-  background-color: #1c1d3b;
+  border-collapse: collapse;
+} 
+
+.theads .ths {
+  border-bottom: 1px solid #222;
 }
-  
+
+.column_title{
+  text-align: left;
+  font-size: 15px;
+}

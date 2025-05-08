@@ -1,26 +1,21 @@
-<h2>Log in</h2>
+<div class="signup_signin_page">
+  <section class="signup_signin_container">
+    <h3 class="signup_signin_container_title">ログイン</h3>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'signup_signin_form' }) do |f| %>
+  <div class="signup_signin_field">
+    <p class="signupin_title"><%= f.label :email, "メールアドレス" %></p>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"signupin_inputForm" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+  <div class="signup_signin_field">
+    <p class="signupin_title"><%= f.label :password, "パスワード" %></p>
+    <%= f.password_field :password, autocomplete: "current-password", class:"signupin_inputForm" %>
   </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <div class="signup_signin_actions">
+    <%= f.submit "ログイン", class:'signupin_btnA' %>
+    <%= link_to '新しいアカウントを作成', new_user_registration_path, class:'signupin_btnB' %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>

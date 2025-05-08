@@ -9,5 +9,39 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
 Rails.start()
-Turbolinks.start()
+//Turbolinks.start()
 ActiveStorage.start()
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const allDropdownToggles = document.querySelectorAll('.dropdown-toggle');
+
+  allDropdownToggles.forEach(toggle => {
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+
+      const currentMenu = toggle.closest('.dropdown').querySelector('.dropdown-menu');
+
+      // 他の開いているメニューを全て閉じる
+      document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
+        if (menu !== currentMenu) {
+          menu.classList.remove('show');
+        }
+      });
+
+      // 自分のメニューを開閉
+      currentMenu.classList.toggle('show');
+    });
+  });
+
+// 外部クリックで全メニュー閉じる
+  document.addEventListener('click', function () {
+    document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
+      menu.classList.remove('show');
+    });
+  });
+});
+
+
+
+

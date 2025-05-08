@@ -1,0 +1,40 @@
+<div class="confirm_page">
+  <section class="confirm_container">
+    <h3 class="confirm_title">予約内容の確認</h3>
+
+    <%= form_with model: @reservation, url: room_reservations_path(@room), method: :post, local: true do |f| %>
+      <div class="confirm_field">
+        <p class="confirm_item"><%= f.label :checkin_date, "チェックイン" %></p>
+        <p class="confirm_inputForm"><%= @reservation.checkin_date.to_s(:date_jp) %></p>
+        <%= f.hidden_field :checkin_date %>
+      </div>
+      <div class="confirm_field">
+        <p class="confirm_item"><%= f.label :checkout_date, "チェックアウト" %></p>
+        <p class="confirm_inputForm"><%= @reservation.checkout_date.to_s(:date_jp) %></p>
+        <%= f.hidden_field :checkout_date %>
+      </div>
+      <div class="confirm_field">
+        <p class="confirm_item"><%= f.label :number_of_date, "日数" %></p>
+        <p class="confirm_inputForm"><%= @reservation.number_of_date %>日</p>
+        <%= f.hidden_field :number_of_date %>
+      </div>
+      <div class="confirm_field">
+        <p class="confirm_item"><%= f.label :number_of_guests, "人数" %></p>
+        <p class="confirm_inputForm"><%= @reservation.number_of_guests %>人</p>
+        <%= f.hidden_field :number_of_guests %>
+      </div>
+      <div class="confirm_field">
+        <p class="confirm_item"><%= f.label :total_fee, "お支払い金額" %></p>
+        <p class="confirm_inputForm">¥<%= @reservation.total_fee %></p>
+        <%= f.hidden_field :total_fee %>
+      </div>
+
+      <p>上記内容で正しければ「確定」ボタンを押してください</p>
+
+      <div class="confirm_actions">
+        <%= f.submit "予約を確定", class:"btnA" %>
+        <%= link_to "キャンセル", room_path(@room), class:"btnB" %>
+      </div>
+    <% end %>
+  </section>
+</div>

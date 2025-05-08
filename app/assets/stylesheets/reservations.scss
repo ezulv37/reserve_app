@@ -1,0 +1,38 @@
+// Place all the styles related to the reservations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+/*予約確認画面*/
+.confirm_page{
+  padding: 40px 0 180px;
+}
+
+.confirm_container{
+  margin: auto;
+  width: 700px;
+}
+
+.confirm_title{
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 40px;
+  margin-top: 0;
+}
+
+.confirm_field{
+  margin-bottom: 24px;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.confirm_item{
+  text-align: left;
+  margin-top: 0;
+  font-weight: 700;
+}
+
+.confirm_inputForm{
+  margin: 0;
+}

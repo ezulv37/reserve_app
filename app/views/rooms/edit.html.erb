@@ -1,0 +1,37 @@
+<div class="room_new_edit_page">
+  <section class="room_new_edit_container">
+    <h3 class="room_new_edit_title">施設情報の編集</h3>
+
+    <%= form_with model: @room do |f| %>
+      <div class="room_new_edit_field">
+        <p class="room_new_edit_item"><%= f.label :name ,"施設名" %></p>
+        <%= f.text_field :name, class:"room_new_edit_inputForm" %>
+      </div>
+
+      <div class="room_new_edit_field">
+        <p class="room_new_edit_item"><%= f.label :introduction ,"施設詳細" %></p>
+        <%= f.text_area :introduction, class:"room_new_edit_inputForm" %>
+      </div>
+
+      <div class="room_new_edit_field">
+        <p class="room_new_edit_item"><%= f.label :fee ,"料金" %></p>
+        <%= f.text_field :fee, class:"room_new_edit_inputForm" %>
+      </div>
+
+      <div class="room_new_edit_field">
+        <p class="room_new_edit_item"><%= f.label :address ,"住所" %></p>
+        <%= f.text_field :address, class:"room_new_edit_inputForm" %>
+      </div>
+
+      <div class="room_new_edit_field">
+        <p class="room_new_edit_item"><%= f.label :image, "施設画像" %></p>
+        <%= f.file_field :image, class:"room_new_edit_inputForm" %>
+      </div>
+
+      <div class="room_new_edit_actions">
+        <%= f.submit "保存", class:"btnA"%>
+        <%= link_to "キャンセル", rooms_path, class:"btnB" %>
+      </div>
+    <% end %>
+  </section>
+</div>

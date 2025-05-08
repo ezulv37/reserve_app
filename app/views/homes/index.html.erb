@@ -1,22 +1,41 @@
-<h1>Homes#index</h1>
-<p>Find me in app/views/homes/index.html.erb</p>
+<section class="firstview">
+  <div class="firstview_inner">
+    <h2>Potepan Shareで<br>
+        まだ体験したことのない<br>
+        旅をしよう
+    </h2>
+    <div class="input_search">
+      <%= form_with url: rooms_path, method: :get, local: true do |f| %>
+        <div>
+          <%= f.text_field :address, value: params[:address], placeholder: "エリア名を入力", include_blank: "すべて", class: "firstview_area_search" %>
+        </div>
+        <%= f.submit "検索", class: "firstview_submit" %>
+      <% end %>
+    </div>
+  </div>
+</section>
 
-<thead>
-  <tr>
-    <th>id</th>
-    <th>名前</th>
-    <th>メールアドレス</th>
-    <th>パスワード</th>
-    <th>作成日</th>
-  </tr>
-</thead>
-
-<% @users.each do |user| %>
-  <tr>
-    <td><%= user.id %></td>
-    <td><%= user.name %></td>
-    <td><%= user.email %></td>
-    <td><%= user.password %></td>
-    <td><%= user.created_at.to_s(:datetime_jp) %></td>
-  </tr>
-<% end %>
+<div class="recommend_container">
+  <section class="section_recommendAreas">
+    <h2 class="recommendAreas_title">おすすめのエリア</h2>
+  
+    <div class="recommendArea_list">
+      <%= link_to "http://localhost:3000/rooms?address=%E6%9D%B1%E4%BA%AC&keyword=&commit=%E6%A4%9C%E7%B4%A2", class:"recommendArea tokyo tokyo_link" do %>
+        <span>東京</span>
+        <span>tokyo</span>
+      <% end %>
+      <%= link_to "http://localhost:3000/rooms?address=%E5%A4%A7%E9%98%AA&keyword=&commit=%E6%A4%9C%E7%B4%A2", class:"recommendArea osaka osaka_link" do %>
+        <span>大阪</span>
+        <span>osaka</span>
+      <% end %>
+      <%= link_to "http://localhost:3000/rooms?address=%E4%BA%AC%E9%83%BD%E5%BA%9C&keyword=&commit=%E6%A4%9C%E7%B4%A2", class:"recommendArea kyoto kyoto_link" do %>
+        <span>京都</span>
+        <span>kyoto</span>
+      <% end %>
+      <%= link_to "http://localhost:3000/rooms?address=%E6%9C%AD%E5%B9%8C&keyword=&commit=%E6%A4%9C%E7%B4%A2", class:"recommendArea sapporo sapporo_link" do %>
+        <span>札幌</span>
+        <span>sapporo</span>
+      <% end %>
+    </div>
+  </section>
+</div>

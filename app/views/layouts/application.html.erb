@@ -22,9 +22,27 @@
 
             <div class="header_icon_and_username">
               <% if user_signed_in? %>
-                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'signout_link' %>
-                <%= image_tag 'default-icon.png', class: 'icon_image' %>
-                <p><%= current_user.name %></p>
+                <% if current_user&.image&.attached? %>
+                  <%= image_tag @user.image, size: "45x45" %>
+                <% else %>
+                  <%= image_tag 'default-icon.png', size: "45x45", class: "icon_image" %>
+                <% end %>
+                
+                <!-- ▼ ドロップダウン全体 -->
+                <div class="dropdown">
+                  <p class="header_username dropdown-toggle">
+                    <%= current_user.name.presence || "名無しユーザー" %> ▼
+                  </p>
+
+                  <div class="dropdown_menu hidden dropdown-menu">
+                    <%= link_to '施設の新規登録', new_room_path, class: 'dropdown-item' %><br>
+                    <%= link_to '予約済み一覧', reservations_index_path, class: 'dropdown-item' %><br>
+                    <%= link_to '登録済み施設一覧', room_own_path, class: 'dropdown-item' %><br>
+                    <%= link_to 'アカウント設定', user_account_path, class: 'dropdown-item' %><br>
+                    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+                  </div>
+                </div>
+              
               <% else %>
                 <%= link_to 'ログイン', new_user_session_path, class:'signin_link1' %>
                 <%= link_to '新規登録', new_user_registration_path, class:'signup_link1' %>
@@ -34,11 +52,8 @@
         </nav>
     </header>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
     <main class="main">
-    <%= yield %>
+      <%= yield %>
     </main>
 
     <footer></footer>
